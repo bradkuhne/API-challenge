@@ -34,16 +34,23 @@ startQuiz = function() {
 
 function createAnswerHandler() {
     for (let x = 0; x < 4; x++) {
-        var answersEl = document.createElement("li");
+        var answersEl = document.createElement("button");
         answersEl.className = "answers";
-        answersEl.textContent = quest1Answers[x];
+        //answersEl.textContent = quest1Answers[x];
+        answersEl.innerText = quest1Answers[x]
         answersList.appendChild(answersEl);
     };
 };
 
 function removeText() {
     var textToRemove = document.getElementById("openingText");
-    textToRemove.remove();
+    if (textToRemove) {
+        textToRemove.remove();
+    }
+    var textToRemove = document.getElementById("start");
+    if (textToRemove) {
+        textToRemove.remove();
+    }
 };
 
 function presentAnswers() {
@@ -52,19 +59,7 @@ function presentAnswers() {
         case 0:
             console.log ("question 1 answers: " + quest1Answers[0]);
             // answersEl.textContent = quest1Answers[0];
-            createAnswerHandler();
-            // for (let x = 0; x < 3; x++) {
-            // quest1Answers.appendChild (answersEl);
-            // quest2Answers.appendChild (answersEl);
-            // quest3Answers.appendChild (answersEl);
-
-
-            
-            
-            
-            
-            
-            
+            createAnswerHandler();            
             break;
         case 1:
             console.log ("question 2 answers: " + quest2Answers[0]);
