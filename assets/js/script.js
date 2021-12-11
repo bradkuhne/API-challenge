@@ -1,7 +1,7 @@
 var buttonEl = document.querySelector("#start");
-var tasksToDoEl = document.querySelector("#tasks-to-do"); //Need to change variable names
+var questionsEl = document.querySelector("#questions-to-ask");
 
-const questions = ["What color is the prolific lure color?", "All other things being eqaul, what time of day is the best time to catch fish?", "What is the name of the style for rigging a plastic worm in-line on an offset hook with a weight directly on top of the hook?", "Do you generall want to use stronger or thinner line when fishing around structure such as trees or moss?"];
+const questions = ["What color is the most prolific lure color?", "All other things being eqaul, what time of day is the best time to catch fish?", "What is the name of the style for rigging a plastic worm in-line on an offset hook with a weight directly on top of the hook?", "Do you generall want to use stronger or thinner line when fishing around structure such as trees or moss?"];
 const quest1Answers = ["Blue", "Red", "Purple", "Chartreuse"];
 var quest1Correct = quest1Answers[3];
 console.log (quest1Correct);
@@ -22,10 +22,7 @@ console.log (quest4Correct);
 
 var startQuiz = function() {
     console.log ("button was clicked");
-//   var listItemEl = document.createElement("li");
-//   listItemEl.className = "task-item";
-//   listItemEl.textContent = "This is a new task.";
-//   tasksToDoEl.appendChild(listItemEl);
-};
+    questionsEl.textContent = questions[0];
+    };
 
 buttonEl.addEventListener("click", startQuiz);
