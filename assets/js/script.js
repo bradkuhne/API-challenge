@@ -1,6 +1,6 @@
 var buttonEl = document.querySelector("#start");
 var questionsEl = document.querySelector("#questions-to-ask");
-var answersEl = document.querySelector(".answers");
+var answersList = document.querySelector("#answers");
 
 const questions = ["What color is the most prolific lure color?", "All other things being eqaul, what time of day is the best time to catch fish?", "What is the name of the style for rigging a plastic worm in-line on an offset hook with a weight directly on top of the hook?", "Should you use stronger or lighter line when fishing around structure such as trees or moss?"];
 const quest1Answers = ["Blue", "Red", "Purple", "Chartreuse"];
@@ -18,30 +18,53 @@ console.log (quest4Correct);
 
 var questionCount = 0
 
-
-
-
 startQuiz = function() {
     console.log ("button was clicked");
-    // for (let i = 0; i < questions.length; i++) {
     if (questionCount < questions.length){
         console.log ("question count: " + questionCount + " Questions length: " + questions.length);
         questionsEl.textContent = questions[questionCount];
+        removeText();
         presentAnswers();
         buttonEl.addEventListener("click", startQuiz);
         questionCount++;
     }   else {
             console.log ("need to show all done text");
     } 
-    //};
+};
+
+function createAnswerHandler() {
+    for (let x = 0; x < 4; x++) {
+        var answersEl = document.createElement("li");
+        answersEl.className = "answers";
+        answersEl.textContent = quest1Answers[x];
+        answersList.appendChild(answersEl);
+    };
+};
+
+function removeText() {
+    var textToRemove = document.getElementById("openingText");
+    textToRemove.remove();
 };
 
 function presentAnswers() {
     console.log ("in present answers function");
     switch (questionCount) {
         case 0:
-            console.log ("question 1 answers: " + quest1Answers[0] + "text in answersEl.textContent: " + answersEl.textContent);
-            answersEl.textContent = quest1Answers[0];
+            console.log ("question 1 answers: " + quest1Answers[0]);
+            // answersEl.textContent = quest1Answers[0];
+            createAnswerHandler();
+            // for (let x = 0; x < 3; x++) {
+            // quest1Answers.appendChild (answersEl);
+            // quest2Answers.appendChild (answersEl);
+            // quest3Answers.appendChild (answersEl);
+
+
+            
+            
+            
+            
+            
+            
             break;
         case 1:
             console.log ("question 2 answers: " + quest2Answers[0]);
