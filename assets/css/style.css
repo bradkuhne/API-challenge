@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+  }
+  
+:root {
+--primary: #800080;
+--secondary: #FF0000;
+--tertiary: #00FF00;
+--grey: #333;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 200px 10px 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
