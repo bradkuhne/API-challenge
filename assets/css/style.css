@@ -74,5 +74,5 @@ header {
 .pWithBorder {
     color: var(--grey);
     font-size: 2.0rem;
-    border-bottom: 5 px solid var(--grey);
+    border-bottom: 5px solid var(--grey);
 }
