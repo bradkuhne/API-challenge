@@ -27,10 +27,12 @@ var screenAnswers = []
 
 var questionCount = 0
 
+var timeLeft = 10;
+
 // Timer that counts down from 75
 function countdown() {
     console.log ("inside countdown function");
-    var timeLeft = 10;
+    // var timeLeft = 10;
     console.log ("First time left = " + timeLeft);
   
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -66,7 +68,9 @@ startQuiz = function() {
     console.log ("button was clicked");
     console.log ("question count: " + questionCount);
     console.log ("question count: " + questionCount + " Questions length: " + questions.length);
-    countdown();
+    if (questionCount == 0){
+        countdown();
+    };
     if (questionCount < questions.length){
         questionsEl.textContent = questions[questionCount];
         removeText();
@@ -196,23 +200,19 @@ function endGame() {
     questionsEl.textContent = ("All done!");
     // var answerId = document.getElementById("answers");
     console.log ("this is the number of questions we are on: " + questionCounter)
-    if (questionCounter > 0){
-        for (let i = 0; i < 5; i++) {
-            console.log ("i equals: " + i)
+    for (let i = 0; i < 6; i++) {
+        console.log ("inside for loop to remove text and show end game");
+        if (answerId.hasChildNodes()) {
             answerId.removeChild(answerId.childNodes[0]);
-        };
-    } else {
-            for (let i = 0; i < 4; i++) {
-                console.log ("i equals: " + i)
-                answerId.removeChild(answerId.childNodes[0]);
-            };
-        }
+          }
+    }
     var endGameEl = document.createElement("div");
     endGameEl.className = "endGame";
     endGameEl.innerHTML =
     // "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
-    "<p>'HELLO WORLD'</p>"; 
-  answerId.appendChild(endGameEl);
+    "<p> 'Your final score is: '</p>"; 
+    answerId.appendChild(endGameEl);
+    console.log("At end game.  the timeLeft is: " + timeLeft);
 };
 
 function removeText() {
