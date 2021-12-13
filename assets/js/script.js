@@ -210,15 +210,22 @@ function endGame() {
     endGameEl.innerHTML =
     // "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
     "<var>Your final score is: </var>"+ timeLeft + "<br>" +
+    "<form class=formEl id=formEl>"+
     "<label for=" + initials + ">Enter initials:</label>" +
     "<input type=text id=" + initials + "name=" + initials +">" +
-    "<input type=submit value= Submit> </input>";
-    
-    textTimeLeft = timeLeft.toString();
-    localStorage.setItem("score", textTimeLeft);
+    "<input type=submit value= Submit> </input>" +
+    "</form>";
+    //textTimeLeft = timeLeft.toString();
+    //localStorage.setItem("score", textTimeLeft);
     // localStorage.setItem("score", JSON.stringify(timeLeft));
     answerId.appendChild(endGameEl);
+    formEl.addEventListener("submit", storeScore());
     endGameStop = 1;
+};
+
+function storeScore() {
+    textTimeLeft = timeLeft.toString();
+    localStorage.setItem(initials, textTimeLeft);
 };
 
 function removeText() {
