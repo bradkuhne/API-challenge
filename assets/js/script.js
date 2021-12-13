@@ -21,15 +21,19 @@ const quest4Answers = ["Lighter", "Stronger", "Doesn't matter", "Don't fish near
 var quest4Correct = quest4Answers[1];
 // console.log (quest4Correct);
 
-var remTime = 0
+var remTime = 0;
 
-var screenAnswers = []
+var screenAnswers = [];
 
 var questionCount = 0
 
 var timeLeft = 10;
 
-var endGameStop = 0
+var textTimeLeft = "";
+
+var endGameStop = 0;
+
+var initials = "";
 
 // Timer that counts down from 75
 function countdown() {
@@ -205,7 +209,14 @@ function endGame() {
     endGameEl.className = "endGame";
     endGameEl.innerHTML =
     // "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
-    "<var>Your final score is:</var>"+ timeLeft; 
+    "<var>Your final score is: </var>"+ timeLeft + "<br>" +
+    "<label for=" + initials + ">Enter initials:</label>" +
+    "<input type=text id=" + initials + "name=" + initials +">" +
+    "<input type=submit value= Submit> </input>";
+    
+    textTimeLeft = timeLeft.toString();
+    localStorage.setItem("score", textTimeLeft);
+    // localStorage.setItem("score", JSON.stringify(timeLeft));
     answerId.appendChild(endGameEl);
     endGameStop = 1;
 };
