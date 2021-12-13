@@ -27,7 +27,7 @@ var screenAnswers = [];
 
 var questionCount = 0
 
-var timeLeft = 10;
+var timeLeft = 75;
 
 var textTimeLeft = "";
 
