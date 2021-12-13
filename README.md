@@ -4,6 +4,8 @@ Question game with time and saved score by Brad Kuhne
 Deployed website URL: https://bradkuhne.github.io/API-challenge/
 GitHub repository URL: https://github.com/bradkuhne/API-challenge
 
+![Deployed Screen Shot](./assets/images/DeployedScreenShot.png)
+
 User Story
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
