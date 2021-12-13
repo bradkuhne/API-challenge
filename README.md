@@ -6,6 +6,11 @@ GitHub repository URL: https://github.com/bradkuhne/API-challenge
 
 ![Deployed Screen Shot](./assets/images/DeployedScreenShot.png)
 
+Functionality not complete:
+1. Need to add logic to determine which button is clicked so that I can add logic for right or wrong answers.  App currently defaults to correct 100% of the time.
+2. Need to all initials to be entered and saved to localStorage.
+3. Need to add logic to retrieve high score from localStorage and display to page properly.
+
 User Story
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
