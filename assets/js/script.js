@@ -29,6 +29,8 @@ var questionCount = 0
 
 var timeLeft = 10;
 
+var endGameStop = 0
+
 // Timer that counts down from 75
 function countdown() {
     console.log ("inside countdown function");
@@ -38,6 +40,9 @@ function countdown() {
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
       console.log ("inside timeInterval function.  Time left: " + timeLeft);
+      if (endGameStop == 1){
+        clearInterval(timeInterval);
+      };
         // As long as the `timeLeft` is greater than 1
     if (timeLeft > 1) {
          console.log ("Time left = " + timeLeft);
@@ -164,26 +169,16 @@ function createAnswer4() {
 
 
 judgeAnswer = function () {
-    
-    
-
-    // var btn1Chosen = document.getElementById("2");
-    // console.log ("this is the value of btn1Chosen " + btn1Chosen.id);
-    // if (btn1Chosen) {
-    //     console.log ("button 1 was chosen");
-    // }
-    if (questionCounter < 4 ) {
+      if (questionCounter < 4 ) {
         var answerName = document.querySelector("button").getAttribute("id");
         console.log ("answer button was clicked.  I need to determine which one.");
         console.log ("button value: " + answerName);
         console.log ("inside answer name");
         questionCounter++
         startQuiz();
-        // var feedback = document.createElement("div");
         var answerFeedback = document.createElement("p");
         answerFeedback.textContent = "Correct!";
         answerFeedback.className = "pWithBorder";
-        // feedback.appendChild(answerFeedback);
         answersList.appendChild(answerFeedback);
     };
     console.log ("*** THIS is the questionCounter: " + questionCounter);
@@ -210,9 +205,9 @@ function endGame() {
     endGameEl.className = "endGame";
     endGameEl.innerHTML =
     // "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
-    "<p> 'Your final score is: '</p>"; 
+    "<var>Your final score is:</var>"+ timeLeft; 
     answerId.appendChild(endGameEl);
-    console.log("At end game.  the timeLeft is: " + timeLeft);
+    endGameStop = 1;
 };
 
 function removeText() {
